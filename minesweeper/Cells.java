@@ -17,6 +17,15 @@ public class Cells {
             int x = rand.nextInt(9);
             board[x][y] = 9;
         }
+        //爆弾を見て、それを起点に周りの数字を足していく処理
+        for (int y = 0; y < board.length; y++) {
+            for (int x = 0; x < board[y].length; x++) {
+                //爆弾を見つけたら
+                if(board[y][x] == 9){
+                    //それを起点に数字を一ずつ足していく
+                }
+            }
+        }
 
         //9×9盤面を表示
         for (int row = 0; row < board.length; row++) {
@@ -24,6 +33,8 @@ public class Cells {
                 System.out.print(board[row][col] + " ");
             }
             System.out.println();
+
+
         }
     }
 }
