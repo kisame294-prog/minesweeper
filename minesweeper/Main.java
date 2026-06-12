@@ -10,9 +10,16 @@ public class Main {
         System.out.print("爆弾の個数を選択してください。: ");
         int bombNum = in.nextInt();
 
-        Board board = new Board(9);
+        Board board = new Board(9,9 );
         board.putBombs(bombNum);
         board.calcBombs();
-        board.setBoard();
+        //board.setBoard();
+        //プレイヤーから盤面をみえないように
+        board.printVisible();
+        //クリックして座標を開けれるようにしたい...
+        int openY = in.nextInt();
+        int openX = in.nextInt();
+        board.openBoard(openY - 1,openX - 1);
+        board.printVisible();
     }
 }
