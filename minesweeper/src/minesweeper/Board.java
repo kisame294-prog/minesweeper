@@ -19,14 +19,13 @@ public class Board {
         board = new int[sizeY][sizeX];
         visible = new char[sizeY][sizeX];
 
-        //コンストラクタ内で初期化
         for (int y = 0; y < board.length; y++) {
             for (int x = 0; x < board[y].length; x++) {
                 visible[y][x] = '□';
             }
         }
     }
-
+    //爆弾の数を選択
     public  void putBombs(int bombNum,int safeY, int safeX){
         var rand = new Random();
         int count = 0;
@@ -42,7 +41,7 @@ public class Board {
             }
         }
     }
-
+    //周囲の爆弾の数
     public void calcBombs(){
         for (int y = 0; y < board.length; y++) {
             for (int x = 0; x < board[y].length; x++) {
@@ -63,6 +62,16 @@ public class Board {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    public void showBombs(){
+        for (int y = 0; y < board.length; y++) {
+            for (int x = 0; x < board[y].length; x++){
+                if(board[y][x] == 9){
+                    visible[y][x] = '*';
                 }
             }
         }
@@ -116,6 +125,10 @@ public class Board {
         }
     }
 
+    public char getVisible(int y, int x){
+        return visible[y][x];
+    }
+    //フラグの入れ替え
     public void toggleFlag(int y, int x){
         if(visible[y][x] == '□'){
             visible[y][x] = 'F';

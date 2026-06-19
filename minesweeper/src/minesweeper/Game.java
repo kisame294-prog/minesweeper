@@ -75,7 +75,7 @@ public class Game {
 
                 if (board.isBomb(openY, openX)) {
                     System.out.println("ゲームオーバー!");
-                    board.printBoard();
+                    board.printVisible();
                     gameOver = true;
                 } else if (board.isClear()) {
                     System.out.println("クリア!");
